@@ -1,0 +1,26 @@
+Change in Height as a function of change in BF.
+These figures are correct even if rebalancing has occurred.
+Cases marked "--" are impossible.
+
+Figures are given for insertion/deletion from left and
+right sub-trees separately, and a combined figure for
+where it's unknown which sub-tree was modified.
+
+         InsL  InsR   Insert  |  DelL  DelR   Delete
+ E->E      0     0       0    |    0     0       0
+ E->N     --    --      --    |   --    --      --
+ E->Z     +1    +1      +1    |   --    --      --
+ E->P     --    --      --    |   --    --      --
+ N->E     --    --      --    |   --    --      --
+ N->N      0     0       0    |    0     0       0
+ N->Z      0     0       0    |   -1    -1      -1
+ N->P     --    --      --    |    0    --       0
+ Z->E     --    --      --    |   -1    -1      -1
+ Z->N     --    +1      +1    |    0    --       0
+ Z->Z      0     0       0    |    0     0       0
+ Z->P     +1    --      +1    |   --     0       0
+ P->E     --    --      --    |   --    --      --
+ P->N     --    --      --    |   --     0       0
+ P->Z      0     0       0    |   -1    -1      -1
+ P->P      0     0       0    |    0     0       0
+
