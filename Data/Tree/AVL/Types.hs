@@ -1,4 +1,6 @@
 {-# OPTIONS_GHC -fglasgow-exts #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveAnyClass #-}
 -----------------------------------------------------------------------------
 -- |
 -- Module      :  Data.Tree.AVL.Types
@@ -22,11 +24,13 @@ module Data.Tree.AVL.Types
 
 import Prelude -- so haddock finds the symbols there
 
+import Control.DeepSeq
 import Data.Typeable
 #if __GLASGOW_HASKELL__ > 604
 import Data.Foldable
 import Data.Monoid
 #endif
+import GHC.Generics
 
 -- | AVL tree data type.
 --
@@ -95,7 +99,8 @@ data AVL e = E                      -- ^ Empty Tree
            | N (AVL e) e (AVL e)    -- ^ BF=-1 (right height > left height)
            | Z (AVL e) e (AVL e)    -- ^ BF= 0
            | P (AVL e) e (AVL e)    -- ^ BF=+1 (left height > right height)
-           deriving(Eq,Ord,Show,Read,Typeable)
+           deriving(Eq,Ord,Show,Read,Typeable,Generic,NFData)
+
 
 #ifndef __GLASGOW_HASKELL__
 -- A Typeable instance (not needed by ghc, but Haddock fails to document this instance)

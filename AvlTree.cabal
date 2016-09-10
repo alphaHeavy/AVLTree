@@ -24,7 +24,7 @@ Extra-Tmp-Files:
 
 Library
  Buildable:          True
- Build-Depends:      base, COrdering >= 2.3
+ Build-Depends:      base, COrdering >= 2.3, deepseq
  Exposed-Modules:    Data.Tree.AVL,
                      Data.Tree.AVL.Test.AllTests,
                      Data.Tree.AVL.Test.Counter
